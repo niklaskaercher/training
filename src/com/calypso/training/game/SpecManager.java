@@ -102,4 +102,18 @@ public class SpecManager {
 		
 	}
 	
+	public void updateSpecs() {
+		
+		for(Player player : specs) {
+			
+			if(Training.game.getPlayers().contains(player)) {
+				
+				removeSpec(player);
+				
+			}
+			
+		}
+		
+	}
+	
 }

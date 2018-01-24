@@ -3,8 +3,14 @@ package com.calypso.training.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Color;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+
+import com.calypso.training.util.ItemBuilder;
 
 public class Team {
 
@@ -15,6 +21,7 @@ public class Team {
 	private int size;
 	private int points;
 	private List<Player> players;
+	private List<Player> livingPlayers;
 	private boolean hasBed;
 	
 	public Team(String name, Color color, int size) {
@@ -22,6 +29,7 @@ public class Team {
 		this.color = color;
 		this.size = size;
 		this.players = new ArrayList<>();
+		this.livingPlayers = new ArrayList<>();
 		this.hasBed = true;
 		this.points = 0;
 		
@@ -82,6 +90,14 @@ public class Team {
 	
 	
 	
+	public List<Player> getLivingPlayers() {
+		return livingPlayers;
+	}
+
+	public void setLivingPlayers(List<Player> livingPlayers) {
+		this.livingPlayers = livingPlayers;
+	}
+
 	public static List<Team> getTeams() {
 		return teams;
 	}
@@ -99,6 +115,13 @@ public class Team {
 		}
 		
 		return null;
+		
+	}
+	
+	public static void openTeamInventory(Player player) {
+		
+		Inventory inv = Bukkit.createInventory(player, 9, "§aTeam wählen");
+		
 		
 	}
 	

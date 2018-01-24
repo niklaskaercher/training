@@ -35,6 +35,7 @@ public class Voting {
 		this.selected = null;
 		
 		if(this.state == GameState.LOBBY) {
+			
 			playerVotes = new HashMap<>();
 			votes = new HashMap<>();
 			
